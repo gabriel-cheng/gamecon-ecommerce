@@ -1,8 +1,9 @@
+from typing import Optional
 from sqlmodel import SQLModel, Field
 from main.database.models.category_model import Category
 
 class Products(SQLModel, table=True):
-    id: int = Field(default=None, primary_key=True)
+    id: Optional[int] = Field(default=None, primary_key=True)
     name: str
     category: int = Field(foreign_key=Category.id)
     brand: str
